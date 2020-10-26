@@ -1,0 +1,2 @@
+* Building Rust programs for Windows on Debian Linux
+  https://zork.net/~st/jottings/rust-windows-and-debian.html
