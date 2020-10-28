@@ -1,0 +1,3 @@
+* Arch: segmentation and paging
+  https://manybutfinite.com/post/memory-translation-and-segmentation/
+  Arm Assemly programming: https://azeria-labs.com/
