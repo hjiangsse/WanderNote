@@ -1,0 +1,50 @@
+* Using git in working environment:
+** clone a specific branch:
+   git clone --single-branch --branch <branchname> <remote-repo>
+* Unicode:
+   A good artical about unicode: http://www.tbray.org/ongoing/When/200x/2003/04/06/Unicode
+   libxml webpage: http://xmlsoft.org/index.html
+   use iconv change file encoding: iconv -f GB2312 -t UTF-8 zycp.txt > new_zycp.txt
+* Rust:
+** traits: https://blog.rust-lang.org/2015/05/11/traits.html
+** traits object: 
+   data     --> the object of the type which implements the *trait*
+   behavior --> a vtable record the *trait behavior*
+   trait object = data + behavior, is used to allow abstraction across common behavior(trait)
+   the-rust-book: https://doc.rust-lang.org/book/ch17-02-trait-objects.html
+* Linux/Unix:
+** add a task to systemed:
+1. create a xxx.service file
+   [Unit]
+   Description=sslocal jump out service
+   After=network.target
+   StartLimitIntervalSec=0
+
+   [Service]
+   Type=simple
+   Restart=always
+   RestartSec=1
+   User=pi
+   ExecStart=/home/pi/.local/bin/sslocal -c /etc/shadowsocks.json
+
+   [Install]
+   WantedBy=multi-user.target
+
+2. mv this service file to /etc/systemd/system/
+
+3. start the new system service: systemctl start xxx
+
+4. auto get it start when you mechine reboot: systemctl enable xxx
+** linux keyboard capslock remap as ctrl:
+   On Raspbian, edit the file /etc/default/keyboard and then run sudo dpkg-reconfigure keyboard-configuration. 
+   You may have to restart your terminal and/or the Pi for everything to take effect.
+
+   The particulars of what you need to enter depend on what you want to do. For me, this:
+
+   XKBMODEL="pc105"
+   XKBLAYOUT="us"
+   XKBVARIANT="altgr-intl"
+   XKBOPTIONS="terminate:ctrl_alt_bksp,ctrl:nocaps"
+
+   makes sure I have US international keyboard layout and Caps Lock acts as Control (that's the ctrl:nocaps part).
+   Find out more via man keyboard.
