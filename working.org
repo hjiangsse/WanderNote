@@ -48,3 +48,14 @@
 
    makes sure I have US international keyboard layout and Caps Lock acts as Control (that's the ctrl:nocaps part).
    Find out more via man keyboard.
+** grep out string in a directory:
+   If your grep supports -R, do:
+   grep -R 'string' dir/
+
+   If not, then use find:
+   find dir/ -type f -exec grep -H 'string' {} +
+** find something with a specific time:
+   https://www.cyberciti.biz/faq/linux-unix-osxfind-files-by-date/
+
+
+
