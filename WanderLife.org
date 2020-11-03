@@ -1,3 +1,12 @@
 * the road to self implementation
 ** Shah: learning how to learn
    https://idriesshahfoundation.org/read-online/learning-how-to-learn
+* productivity:
+** eureka: save your idea without leave the terminal;
+   cargo install eureka
+** control and play with your bash:
+   https://github.com/Bash-it/bash-it
+** terminal file manager
+   full-featured terminal file manager
+** Nyxt web browser(work with emacs)
+** Emacs abbrevs expand
