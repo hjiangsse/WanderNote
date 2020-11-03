@@ -2,11 +2,41 @@
 ** Shah: learning how to learn
    https://idriesshahfoundation.org/read-online/learning-how-to-learn
 * productivity:
-** eureka: save your idea without leave the terminal;
-   cargo install eureka
 ** control and play with your bash:
    https://github.com/Bash-it/bash-it
 ** terminal file manager
    full-featured terminal file manager
 ** Nyxt web browser(work with emacs)
 ** Emacs abbrevs expand
+*** define abbrevs
+**** C-x a g: define a global abbrev
+**** C-x a l: define a local abbrev
+**** C-x a i g: define a word in this buffer as an abbrev
+**** C-x a i l: define a word in this buffer as a mode-specific abbrev
+**** M-x define-global-abbrev RET abbrev RET exp RET
+     Define abbrev as an abbrev expanding into exp.
+**** M-x define-mode-abbrev RET abbrev RET exp RET
+     Define abbrev as a mode-specific abbrev expanding into exp.
+**** M-x kill-all-abbrevs
+     Discard all abbrev definitions, leaving a blank slat
+**** remove a abbrev   
+     C-u - C-x a g
+** 100 days 100 project
+   https://github.com/florinpop17/app-ideas
+** bat(rust)
+   A cat(1) clone with syntax highlighting and Git integration. 
+** fd(rust)
+   fd is a simple, fast and user-friendly alternative to find.
+** redox(a rust os)
+   https://github.com/redox-os/redox
+
+#include <.h> 
+
+int func()
+{
+} 
+
+trait YourTraint
+{
+    fn trait_func(&self);
+} 
