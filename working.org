@@ -1,6 +1,22 @@
 * Using git in working environment:
 ** clone a specific branch:
    git clone --single-branch --branch <branchname> <remote-repo>
+** how to rolling back a remote git repo:
+   You can use:
+                 *git revert <commit>…*
+   for all the n commits, and then push as usual, 
+   keeping history unchanged.
+
+   Or you can "roll back" with 
+                 *git reset --hard HEAD~n*
+   
+   If you are pushing in a public or shared repository, 
+   you may diverge and break others work based on your 
+   original branch. Git will prevent you doing so, but 
+   you can use:
+                 *git push -f* 
+   to force the update.
+
 * Unicode:
    A good artical about unicode: http://www.tbray.org/ongoing/When/200x/2003/04/06/Unicode
    libxml webpage: http://xmlsoft.org/index.html

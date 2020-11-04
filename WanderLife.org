@@ -2,6 +2,10 @@
 ** Shah: learning how to learn
    https://idriesshahfoundation.org/read-online/learning-how-to-learn
 * productivity:
+** let git remember you username and passwd:
+   git config --global credential.helper store
+   then
+   git pull
 ** control and play with your bash:
    https://github.com/Bash-it/bash-it
 ** terminal file manager
