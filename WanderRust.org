@@ -1,2 +1,21 @@
 * Building Rust programs for Windows on Debian Linux
   https://zork.net/~st/jottings/rust-windows-and-debian.html
+* "Clone on write": what this 'cow' did for you?
+How a system programming progremmer what his data:
+** exactly where your data lives,
+** that it is efficiently stored,
+** that it is removed as soon as you stop using it,
+** and that you don’t copy it around needlessly.
+If you want to write fast program, your data should be managed according the
+previous standards.
+
+Never copy your data if you have to copy it!
+
+In Rust, the abbreviation “Cow” stands for “clone on write”.
+It is an enum with two states: Borrowed and Owned. 
+
+This means you can use it to abstract over whether you own the data 
+or just have a reference to it. 
+
+This is especially useful when you want to return a type from a function 
+that may or may not need to allocate.

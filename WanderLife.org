@@ -44,3 +44,5 @@ trait YourTraint
 {
     fn trait_func(&self);
 } 
+** quick awk
+   
