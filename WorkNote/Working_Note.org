@@ -1,0 +1,114 @@
+* Using git in working environment:
+** clone a specific branch:
+   git clone --single-branch --branch <branchname> <remote-repo>
+** how to rolling back a remote git repo:
+   You can use:
+                 *git revert <commit>…*
+   for all the n commits, and then push as usual, 
+   keeping history unchanged.
+
+   Or you can "roll back" with 
+                 *git reset --hard HEAD~n*
+   
+   If you are pushing in a public or shared repository, 
+   you may diverge and break others work based on your 
+   original branch. Git will prevent you doing so, but 
+   you can use:
+                 *git push -f* 
+   to force the update.
+
+** check a specific commit:
+*** git log --oneline
+    This will show the commit log one line on commit;
+*** git show <revhash>
+    <revhash> is the hash value of the commit you want to check;
+* Unicode:
+   A good artical about unicode: http://www.tbray.org/ongoing/When/200x/2003/04/06/Unicode
+   libxml webpage: http://xmlsoft.org/index.html
+   use iconv change file encoding: iconv -f GB2312 -t UTF-8 zycp.txt > new_zycp.txt
+* Rust:
+** traits: https://blog.rust-lang.org/2015/05/11/traits.html
+** traits object: 
+   data     --> the object of the type which implements the *trait*
+   behavior --> a vtable record the *trait behavior*
+   trait object = data + behavior, is used to allow abstraction across common behavior(trait)
+   the-rust-book: https://doc.rust-lang.org/book/ch17-02-trait-objects.html
+* Linux/Unix:
+** add a task to systemed:
+1. create a xxx.service file
+   [Unit]
+   Description=sslocal jump out service
+   After=network.target
+   StartLimitIntervalSec=0
+
+   [Service]
+   Type=simple
+   Restart=always
+   RestartSec=1
+   User=pi
+   ExecStart=/home/pi/.local/bin/sslocal -c /etc/shadowsocks.json
+
+   [Install]
+   WantedBy=multi-user.target
+
+2. mv this service file to /etc/systemd/system/
+
+3. start the new system service: systemctl start xxx
+
+4. auto get it start when you mechine reboot: systemctl enable xxx
+** linux keyboard capslock remap as ctrl:
+   On Raspbian, edit the file /etc/default/keyboard and then run sudo dpkg-reconfigure keyboard-configuration. 
+   You may have to restart your terminal and/or the Pi for everything to take effect.
+
+   The particulars of what you need to enter depend on what you want to do. For me, this:
+
+   XKBMODEL="pc105"
+   XKBLAYOUT="us"
+   XKBVARIANT="altgr-intl"
+   XKBOPTIONS="terminate:ctrl_alt_bksp,ctrl:nocaps"
+
+   makes sure I have US international keyboard layout and Caps Lock acts as Control (that's the ctrl:nocaps part).
+   Find out more via man keyboard.
+** grep out string in a directory:
+   If your grep supports -R, do:
+   grep -R 'string' dir/
+
+   If not, then use find:
+   find dir/ -type f -exec grep -H 'string' {} +
+** find something with a specific time:
+   https://www.cyberciti.biz/faq/linux-unix-osxfind-files-by-date/
+** something more about sed:
+*** 'next' command for a single line:
+    sed '/header/{n; d}' test.txt 
+    the privious command will 'delete' the next line of the line which match 'header'
+    so 'n' move to the next line, 'd' just delete it.
+*** 'next' command for multiple line:
+    The content of a file:
+    This is the header line
+    This is the first data line
+    This is the second data line
+    This is the last line
+
+    run this command:
+    sed '/first/{N; s/\n/ /}' test.txt
+
+    this is the result:
+    This is the header line
+    This is the first data line This is the second data line
+    This is the last line
+ 
+    The content:
+    This is a file from jiang
+    heng thank you!
+    
+    run the following command:
+    sed 'N; s/jiang.heng/heng\njiang/' test.txt
+
+    the result:
+    This is a file from heng
+    jiang thank you!
+** linux disk useage check:
+   df 
+   df -h
+   df -k: show in 1024-bytes blocks
+   df -T: show file system type

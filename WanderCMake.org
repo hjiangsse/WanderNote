@@ -1,0 +1,24 @@
+* Some basic CMake command
+** create the 'build' directory by your own hand
+   cd project
+   /* construct your CMakeLists.txt file here */
+   mkdir build
+   cd build
+   cmake ..
+   make
+** let CMake gen the 'build' basement for you
+   cd project
+   /* construct your CMakeLists.txt file here */
+   cmake -S . -B build
+   cmake --build build
+** after build, you can install your project by 'CMake'
+   method 1:
+   cd build
+   make install
+   
+   method 2:
+   cd build
+   cmake --build . --target install
+
+   method 3:
+   
