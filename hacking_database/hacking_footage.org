@@ -1,0 +1,10 @@
+* [Basic] Create, Insert, Select a table in database(postgres):
+CREATE TABLE accounts (
+	id serial PRIMARY KEY,
+	item VARCHAR (255) NOT NULL,
+	cost real NOT NULL,
+        time TIMESTAMP default current_timestamp 
+);
+
+INSERT INTO accounts(item, cost)
+VALUES ('this is a test item', 10.2);
