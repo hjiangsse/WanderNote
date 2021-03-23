@@ -108,3 +108,11 @@
     This is a file from heng
     jiang thank you!
 
+* Using Ddb
+** Change varible of a varible(or the content of a specific address) 
+  https://sourceware.org/gdb/current/onlinedocs/gdb/Assignment.html
+  whatis foo
+  set foo = bar
+  set var foo = bar
+  set {int}0x1234 = 10
+  set {char})0x4567 = 'A'
